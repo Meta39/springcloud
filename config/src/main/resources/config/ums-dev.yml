@@ -1,0 +1,28 @@
+#token超时时间设置，单位为秒
+token-overtime: 18000
+
+server:
+  port: 8083
+
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    connect-timeout: 30000
+  #数据库
+  datasource:
+    username: jettwork
+    password: jettwork
+    #url中database为对应的数据库名称
+    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.jw.ums.entity
+
+#打印sql语句
+logging:
+  level:
+    com.jw.ums.dao: debug

@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  # security安全框架登录配置
+  security:
+    user:
+      name: jettwork
+      password: jettwork
+  profiles:
+    active: native # 配置使用本地储存
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: D:\Workspace\springcloud\config\src\main\resources\config\  #本地配置文件路径
+#          search-locations: d:/config/  #本地配置文件路径
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:8080/eureka/

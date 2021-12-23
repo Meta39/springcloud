@@ -1,0 +1,26 @@
+#token超时时间设置，单位为秒
+token-overtime: 18000
+#filter 过滤地址
+filter-path: "/login,/logout"
+
+server:
+  port: 8082
+
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    connect-timeout: 30000
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: ums
+          uri: lb://UMS #eureka注册中心存在的服务名称
+          predicates:
+            #路径配置
+            - Path=/ums/**
